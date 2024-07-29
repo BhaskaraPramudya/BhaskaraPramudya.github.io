@@ -1,0 +1,70 @@
+/* Styling untuk navbar-container */
+.navbar-container {
+    padding: 0 1rem; /* Padding horizontal untuk container */
+    overflow-x: auto; /* Memastikan scroll horizontal jika diperlukan */
+    white-space: nowrap; /* Mencegah item-item navbar membungkus */
+    -webkit-overflow-scrolling: touch; /* Memperbaiki scroll pada perangkat sentuh */
+}
+
+.navbar-content {
+    display: flex; /* Flexbox untuk item-item navbar */
+    gap: 0.5rem; /* Jarak antar item navbar */
+    justify-content: center; /* Menyelaraskan item di tengah pada desktop */
+}
+
+/* Styling tambahan untuk navbar-item jika ada media query */
+.navbar-item {
+    display: inline-block; /* Membuat setiap item navbar tidak berubah ukuran */
+    padding: 0.5rem 1rem; /* Padding untuk setiap item navbar */
+    font-size: 1rem; /* Ukuran font untuk readability */
+    min-width: 150px; /* Lebar minimum untuk setiap item */
+    white-space: nowrap; /* Mencegah teks membungkus */
+    text-align: center; /* Menyelaraskan teks di tengah */
+}
+
+/* Styling tambahan untuk mode mobile */
+@media (max-width: 768px) {
+    .navbar-content {
+        justify-content: flex-start; /* Atur ke flex-start saat container collapse */
+    }
+    
+    .navbar-item {
+        font-size: 0.875rem; /* Mengurangi ukuran font pada layar kecil */
+        padding: 0.5rem; /* Padding lebih kecil pada layar kecil */
+    }
+}
+
+/* Styling untuk navbar-wrc */
+.navbar-wrc-container {
+    padding: 0 1rem; /* Padding horizontal untuk container */
+    overflow-x: auto; /* Memastikan scroll horizontal jika diperlukan */
+    white-space: nowrap; /* Mencegah item-item navbar membungkus */
+    -webkit-overflow-scrolling: touch; /* Memperbaiki scroll pada perangkat sentuh */
+}
+
+.navbar-wrc-content {
+    display: flex; /* Flexbox untuk item-item navbar */
+    gap: 0.5rem; /* Jarak antar item navbar */
+    justify-content: center; /* Menyelaraskan item di tengah pada desktop */
+}
+
+.navbar-wrc-item {
+    display: inline-block; /* Membuat setiap item navbar tidak berubah ukuran */
+    padding: 0.5rem 1rem; /* Padding untuk setiap item navbar */
+    font-size: 1rem; /* Ukuran font untuk readability */
+    min-width: 150px; /* Lebar minimum untuk setiap item */
+    white-space: nowrap; /* Mencegah teks membungkus */
+    text-align: center; /* Menyelaraskan teks di tengah */
+}
+
+/* Styling tambahan untuk mode mobile */
+@media (max-width: 768px) {
+    .navbar-wrc-content {
+        justify-content: flex-start; /* Atur ke flex-start saat container collapse */
+    }
+    
+    .navbar-wrc-item {
+        font-size: 0.875rem; /* Mengurangi ukuran font pada layar kecil */
+        padding: 0.5rem; /* Padding lebih kecil pada layar kecil */
+    }
+}
