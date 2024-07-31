@@ -8,6 +8,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="./css/style.css">
     <script src="./js/include.js" defer></script>
+    <script src="js/schedule.js"></script>
 </head>
 <body class="bg-slate-950">
     <div id="logo"></div>
@@ -19,30 +20,35 @@
                 </div>
             </div>
             <div class="flex items-center justify-center content-center p-3">
-                <div class="space-y-2 py-3">
+                <div class="space-y- py-5">
                     <div class="flex gap-3 flex-row max-md:flex-col">
-                        <div class="max-w-sm rounded-md overflow-hidden shadow-slate-900 bg-white  hover:scale-105 transition-transform ">
+                        <div class="max-w-sm rounded-md overflow-hidden shadow-slate-900 bg-slate-600 hover:scale-105 shadow-2xl transition-transform">
                             <a href="./f1-1.html">
-                            <img class="object-cover h-48 w-full" src="./asset/formula1.jpg">
+                                <img class="object-cover drop-shadow-md h-48 w-full" src="./asset/formula1.jpg">
+                                <div class="px-6 py-4">
+                                    <div class="font-bold text-xl mb-2 text-white text-center">FORMULA 1</div>
+                                    <div class="font-bold text-l text-white text-center">Next Event</div>
+                                    <p id="f1-event-info" class="text-slate-200 text-base text-center">
+                                        <!-- The event details will be inserted here by JavaScript -->
+                                    </p>
+                                </div>
+                            </a>
+                        </div>
+                        
+                        <div class="max-w-sm rounded-md overflow-hidden shadow-slate-900 bg-slate-600  hover:scale-105 shadow-2xl transition-transform">
+                            <a href="./wrc-1.html">
+                            <img class="object-cover drop-shadow-md h-48 w-full" src="./asset/wrc,jpg.jpg">
                             <div class="px-6 py-4">
-                                <div class="font-bold text-xl mb-2 text-black text-center">FORMULA 1</div>
-                                <p class="text-gray-950 text-base">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.
+                                <div class="font-bold text-xl mb-2 text-white text-center">RALLY</div>
+                                <p id="wrc-erc-event-info" class="text-slate-200 text-base text-center">
+                                    <!-- event details -->
                                 </p>
                             </div>
                             </a>
                         </div>
-                        <div class="max-w-sm rounded-md overflow-hidden shadow-2xl bg-white  hover:scale-105 transition-transform">
-                            <a href="./wrc-1.html">
-                            <img class="object-cover h-48 w-full" src="./asset/wrc,jpg.jpg">
-                            <div class="px-6 py-4">
-                                <div class="font-bold text-xl mb-2 text-black text-center">RALLY</div>
-                                <p class="text-gray-950 text-base">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.
-                                </p>
-                            </div>
-                            </a>
-                        </div>                    
+                        
+                            
+                        
                     </div>                    
                 </div>
             </div>

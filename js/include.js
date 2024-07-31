@@ -10,31 +10,43 @@ document.addEventListener('DOMContentLoaded', () => {
     const currentPage = window.location.pathname.split('/').pop(); // Mendapatkan nama file dari URL saat ini
 
     const navbar = `
-        <nav class="bg-slate-950 p-4">
-            <div class="navbar-container">
-                <div class="navbar-content">
-                    <a href="./choose.html" class="navbar-item ${currentPage === 'choose.html' ? 'bg-blue-500' : 'bg-slate-800'} text-white text-center font-semibold py-2 px-4 rounded-full transition-colors hover:${currentPage !== 'choose.html' ? 'bg-slate-600' : 'bg-blue-600'}">Pilih Motorsport</a>
-                    <a href="./f1-1.html" class="navbar-item ${currentPage === 'f1-1.html' ? 'bg-orange-500' : 'bg-slate-800'} text-white text-center font-semibold py-2 px-4 rounded-full transition-colors hover:${currentPage !== 'f1-1.html' ? 'bg-slate-600' : 'bg-orange-600'}">F1 Stream 1</a>
-                    <a href="./f1-2.html" class="navbar-item ${currentPage === 'f1-2.html' ? 'bg-orange-500' : 'bg-slate-800'} text-white text-center font-semibold py-2 px-4 rounded-full transition-colors hover:${currentPage !== 'f1-2.html' ? 'bg-slate-600' : 'bg-orange-600'}">F1 Stream 2</a>
-                    <a href="./f1-3.html" class="navbar-item ${currentPage === 'f1-3.html' ? 'bg-orange-500' : 'bg-slate-800'} text-white text-center font-semibold py-2 px-4 rounded-full transition-colors hover:${currentPage !== 'f1-3.html' ? 'bg-slate-600' : 'bg-orange-600'}">F1 Stream 3</a>
-                    <a href="./f1-4.html" class="navbar-item ${currentPage === 'f1-4.html' ? 'bg-orange-500' : 'bg-slate-800'} text-white text-center font-semibold py-2 px-4 rounded-full transition-colors hover:${currentPage !== 'f1-4.html' ? 'bg-slate-600' : 'bg-orange-600'}">F1 Stream 4</a>
-                    <a href="./f1-5.html" class="navbar-item ${currentPage === 'f1-5.html' ? 'bg-orange-500' : 'bg-slate-800'} text-white text-center font-semibold py-2 px-4 rounded-full transition-colors hover:${currentPage !== 'f1-5.html' ? 'bg-slate-600' : 'bg-orange-600'}">F1 Stream 5</a>
-                </div>
+    <nav class="bg-slate-950 p-4">
+        <div class="navbar-container">
+            <div class="navbar-content">
+                <a href="./choose.html" class="navbar-item ${currentPage === 'choose.html' ? 'bg-blue-500' : 'bg-green-500'} text-white text-center font-semibold py-2 px-4 rounded-full transition-colors hover:${currentPage !== 'choose.html' ? 'bg-green-700' : 'bg-red-600'} flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                    </svg>
+                    Pilih Motorsport
+                </a>
+                <a href="./f1-1.html" class="navbar-item ${currentPage === 'f1-1.html' ? 'bg-orange-500' : 'bg-slate-800'} text-white text-center font-semibold py-2 px-4 rounded-full transition-colors hover:${currentPage !== 'f1-1.html' ? 'bg-slate-600' : 'bg-orange-600'}">F1 Stream 1</a>
+                <a href="./f1-2.html" class="navbar-item ${currentPage === 'f1-2.html' ? 'bg-orange-500' : 'bg-slate-800'} text-white text-center font-semibold py-2 px-4 rounded-full transition-colors hover:${currentPage !== 'f1-2.html' ? 'bg-slate-600' : 'bg-orange-600'}">F1 Stream 2</a>
+                <a href="./f1-3.html" class="navbar-item ${currentPage === 'f1-3.html' ? 'bg-orange-500' : 'bg-slate-800'} text-white text-center font-semibold py-2 px-4 rounded-full transition-colors hover:${currentPage !== 'f1-3.html' ? 'bg-slate-600' : 'bg-orange-600'}">F1 Stream 3</a>
+                <a href="./f1-4.html" class="navbar-item ${currentPage === 'f1-4.html' ? 'bg-orange-500' : 'bg-slate-800'} text-white text-center font-semibold py-2 px-4 rounded-full transition-colors hover:${currentPage !== 'f1-4.html' ? 'bg-slate-600' : 'bg-orange-600'}">F1 Stream 4</a>
+                <a href="./f1-5.html" class="navbar-item ${currentPage === 'f1-5.html' ? 'bg-orange-500' : 'bg-slate-800'} text-white text-center font-semibold py-2 px-4 rounded-full transition-colors hover:${currentPage !== 'f1-5.html' ? 'bg-slate-600' : 'bg-orange-600'}">F1 Stream 5</a>
             </div>
-        </nav>
-    `;
+        </div>
+    </nav>
+`;
+
     
     const navbar_wrc = `
-        <nav class="bg-slate-950 p-4">
-            <div class="navbar-wrc-container">
-                <div class="navbar-wrc-content">
-                    <a href="./choose.html" class="navbar-wrc-item ${currentPage === 'choose.html' ? 'bg-blue-500' : 'bg-slate-800'} text-white text-center font-semibold py-2 px-4 rounded-full transition-colors hover:${currentPage !== 'choose.html' ? 'bg-slate-600' : 'bg-blue-600'}">Pilih Motorsport</a>
-                    <a href="./wrc-1.html" class="navbar-wrc-item ${currentPage === 'wrc-1.html' ? 'bg-orange-500' : 'bg-slate-800'} text-white text-center font-semibold py-2 px-4 rounded-full transition-colors hover:${currentPage !== 'wrc-1.html' ? 'bg-slate-600' : 'bg-orange-600'}">Rally Stream 1</a>
-                    <a href="./wrc-2.html" class="navbar-wrc-item ${currentPage === 'wrc-2.html' ? 'bg-orange-500' : 'bg-slate-800'} text-white text-center font-semibold py-2 px-4 rounded-full transition-colors hover:${currentPage !== 'wrc-2.html' ? 'bg-slate-600' : 'bg-orange-600'}">Rally Stream 2</a>
-                </div>
+    <nav class="bg-slate-950 p-4">
+        <div class="navbar-wrc-container">
+            <div class="navbar-wrc-content">
+                <a href="./choose.html" class="navbar-wrc-item ${currentPage === 'choose.html' ? 'bg-blue-500' : 'bg-green-500'} text-white text-center font-semibold py-2 px-4 rounded-full transition-colors hover:${currentPage !== 'choose.html' ? 'bg-green-700' : 'bg-red-600'} flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                    </svg>
+                    Pilih Motorsport
+                </a>
+                <a href="./wrc-1.html" class="navbar-wrc-item ${currentPage === 'wrc-1.html' ? 'bg-orange-500' : 'bg-slate-800'} text-white text-center font-semibold py-2 px-4 rounded-full transition-colors hover:${currentPage !== 'wrc-1.html' ? 'bg-slate-600' : 'bg-orange-600'}">Rally Stream 1</a>
+                <a href="./wrc-2.html" class="navbar-wrc-item ${currentPage === 'wrc-2.html' ? 'bg-orange-500' : 'bg-slate-800'} text-white text-center font-semibold py-2 px-4 rounded-full transition-colors hover:${currentPage !== 'wrc-2.html' ? 'bg-slate-600' : 'bg-orange-600'}">Rally Stream 2</a>
             </div>
-        </nav>
-    `;
+        </div>
+    </nav>
+`;
+
 
     function adjustNavbar() {
         const navbarContent = document.querySelector('.navbar-content');
