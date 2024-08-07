@@ -1,0 +1,36 @@
+name: Run Scraper
+
+on:
+  schedule:
+    - cron: '0 0 */5 * *'  # This means it will run at midnight UTC every 5 days
+
+jobs:
+  run-scraper:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'  # Ensure the correct Python version is used
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Run scraper script
+        run: |
+          python scraper.py
+
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "bhaskarapramudya123@gmail.com"
+          git config --local user.name "BhaskaraPramudya"
+          git add asset/wrc_schedule_with_sub_events.html
+          git commit -m "Update schedule data"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Automatically provided by GitHub Actions
