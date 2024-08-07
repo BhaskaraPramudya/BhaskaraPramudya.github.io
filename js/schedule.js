@@ -13,24 +13,62 @@ document.addEventListener("DOMContentLoaded", function() {
         });
 });
 
-function fetchWrcEvent() {
-    const wrcApiUrl = 'https://api.wrc.com/contel-page/83388/calendar/active-season/';
+function fetchAndParseSchedule() {
+    // Path to the HTML file
+    const htmlFilePath = 'asset/wrc_schedule_with_sub_events.html';
+    
+    fetch(htmlFilePath)
+        .then(response => response.text())
+        .then(htmlString => {
+            // Create a temporary container to parse the HTML
+            const tempContainer = document.createElement('div');
+            tempContainer.innerHTML = htmlString;
 
-    fetch(wrcApiUrl)
-        .then(response => response.json())
-        .then(wrcData => {
-            const wrcEvent = wrcData.calendar[0]; // Assuming the next event is the first one in the array
+            // Extract schedule items
+            const scheduleItems = tempContainer.querySelectorAll('.wrc-schedule > li');
             
-            const eventDetails = `
-                The next WRC event is the ${wrcEvent.name} on ${wrcEvent.date} at ${wrcEvent.location}.
-            `;
-            document.getElementById("wrc-erc-event-info").innerHTML = eventDetails;
+            const now = new Date();
+            let nearestEvent = null;
+            let minDifference = Infinity;
+
+            scheduleItems.forEach(item => {
+                // Extract event name and date
+                const nameElement = item.querySelector('strong');
+                const dateText = item.textContent.match(/\d{2} \w{3}, \d{2} \w{3} \d{4} \d{2}:\d{2}/);
+
+                if (nameElement && dateText) {
+                    const eventName = nameElement.textContent;
+                    const eventDate = new Date(dateText[0]);
+
+                    // Find the nearest event
+                    const difference = eventDate - now;
+                    if (difference > 0 && difference < minDifference) {
+                        minDifference = difference;
+                        nearestEvent = {
+                            name: eventName,
+                            date: eventDate.toLocaleString(),
+                            details: Array.from(item.querySelectorAll('ul > li')).map(detail => detail.textContent)
+                        };
+                    }
+                }
+            });
+
+            // Display the nearest event
+            const eventDetails = nearestEvent ? `
+                <strong>${nearestEvent.name}</strong>: ${nearestEvent.date}
+                <ul>
+                    ${nearestEvent.details.map(detail => `<li>${detail}</li>`).join('')}
+                </ul>
+            ` : 'No upcoming events found.';
+
+            document.getElementById("wrc-schedule-info").innerHTML = eventDetails;
         })
         .catch(error => {
-            console.error('Error fetching WRC data:', error);
-            document.getElementById("wrc-erc-event-info").textContent = 'No next event information :(';
-        })
+            console.error('Error fetching the schedule:', error);
+            document.getElementById("wrc-schedule-info").textContent = 'Error loading schedule.';
+        });
 }
 
-document.addEventListener("DOMContentLoaded", fetchWrcEvent);
+// Call the function when the page loads
+window.onload = fetchAndParseSchedule;
 
